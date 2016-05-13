@@ -34,6 +34,7 @@ public class ImportsPerformance {
     
     public static void main(String[] args) throws SQLException, IOException {
         try{
+            System.out.println("IMPORTS PERFORMANCE");
             workbook = new HSSFWorkbook(new POIFSFileSystem(new FileInputStream("C:\\Documents and Settings\\Administrator\\Desktop\\Template2.xls")));
             sheet = workbook.getSheet("Department");
             font = workbook.createFont();
@@ -55,20 +56,20 @@ public class ImportsPerformance {
         
             ImportsPerformance  importsPerf = new ImportsPerformance();
             
-            System.out.println("Connecting to Database..");
             
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             con = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
             
             importsPerf.getDate();
+            System.out.println("- "+date+" -");
             importsPerf.totalSalesMTD();
             importsPerf.importsTotalSalesMTD();
             importsPerf.budgetTotalSalesMTD();
             importsPerf.budgetImportsSalesMTD();
-            importsPerf.totalSalesQTD();
-            importsPerf.importsTotalSalesQTD();
-            importsPerf.totalSalesYTD();
-            importsPerf.importsTotalSalesYTD();
+            //importsPerf.totalSalesQTD();
+            //importsPerf.importsTotalSalesQTD();
+            //importsPerf.totalSalesYTD();
+            //importsPerf.importsTotalSalesYTD();
            
 
            
@@ -81,7 +82,7 @@ public class ImportsPerformance {
             HSSFFormulaEvaluator.evaluateAllFormulaCells(workbook);
             workbook.setForceFormulaRecalculation(true);
             //System.out.println(date);
-            FileOutputStream output = new FileOutputStream("C:\\Documents and Settings\\Administrator\\Desktop\\Importation Performance (as of "+date+").xls");
+            FileOutputStream output = new FileOutputStream("Importation Performance (as of "+date+").xls");
             workbook.write(output);
             output.close();
            
@@ -432,7 +433,7 @@ public class ImportsPerformance {
             ",3040,3050,3060,3080,6540,6550,6560,7550,9510,9520,9530,8010,8020,8030"+
             ",1510,1520,1530,1540,1010,1020,1030,1040,1050,1060,2020,2030,2040,2050,5520"+
             ",5530,8040,6010,8510,8520,8530,8540,8550,8560,8570,8590,9010,9020,9030) "+
-            "and d.date_fld between trunc(sysdate,'Q') AND sysdate-1 "+
+            "and d.date_fld between trunc(sysdate,'YEAR') AND sysdate-1 "+
             "and dp.latest = 1 and dp.active = 1 and dp.concession_flg='N' "+
             "GROUP BY dp.department_code, dp.department_desc, dp.merch_group_desc,"+
             "dp.group_desc,dp.division_desc "+
