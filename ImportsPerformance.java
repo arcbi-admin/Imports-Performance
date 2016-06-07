@@ -11,6 +11,7 @@ import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.*;
 import java.io.*;
+import java.util.concurrent.TimeUnit;
 
 
 public class ImportsPerformance {
@@ -33,10 +34,27 @@ public class ImportsPerformance {
      static String mdate;
      static String qdate;
      static String ydate;
+     static String statusETL;
     
     
     public static void main(String[] args) throws SQLException, IOException {
         try{
+            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+            con = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+            
+            ImportsPerformance  importsPerf = new ImportsPerformance();
+            
+            importsPerf.getStatusETL();
+            
+            while (statusETL.equals("NOT DONE")){
+                try {
+                        TimeUnit.MINUTES.sleep(5);
+                        importsPerf.getStatusETL(); 
+                    } catch (InterruptedException e) {
+                          System.out.print(e);
+                    }
+            }
+            
             System.out.println("IMPORTS PERFORMANCE");
             workbook = new HSSFWorkbook(new POIFSFileSystem(new FileInputStream("C:\\Documents and Settings\\Administrator\\My Documents\\NetBeansProjects\\ImportsPerformance\\template\\ImportsTemplate.xls")));
             sheet = workbook.getSheet("Department");
@@ -51,38 +69,30 @@ public class ImportsPerformance {
             style1.setBorderRight(CellStyle.BORDER_THIN);
             style1.setBorderLeft(CellStyle.BORDER_THIN);
             style1.setBorderTop(CellStyle.BORDER_THIN);
-            style1.setDataFormat(HSSFDataFormat.getBuiltinFormat("#,##0.00"));
+            style1.setDataFormat(HSSFDataFormat.getBuiltinFormat("#,##0"));
             style1.setFont(font);
             style2.setFont(font2);
-            
-            
-        
-            ImportsPerformance  importsPerf = new ImportsPerformance();
-            
-            
-            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-            con = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
-            
+
             importsPerf.getDate();
-            System.out.println("- "+date+" -");
+            System.out.println("Report as of: "+date);
             
             //MTD (TOTAL & IMPORTS)
-            //importsPerf.totalSalesMTD();
-            //importsPerf.importsTotalSalesMTD();
-            //importsPerf.budgetTotalSalesMTD();
-            //importsPerf.budgetImportsSalesMTD();
+            importsPerf.totalSalesMTD();
+            importsPerf.importsTotalSalesMTD();
+            importsPerf.budgetTotalSalesMTD();
+            importsPerf.budgetImportsSalesMTD();
             
             //QTD (TOTAL & IMPORTS)
-            //importsPerf.totalSalesQTD();
-            //importsPerf.importsTotalSalesQTD();
-            //importsPerf.budgetTotalSalesQTD();
-            //importsPerf.budgetImportsSalesQTD();
+            importsPerf.totalSalesQTD();
+            importsPerf.importsTotalSalesQTD();
+            importsPerf.budgetTotalSalesQTD();
+            importsPerf.budgetImportsSalesQTD();
             
             //QTD (TOTAL & IMPORTS)
-            //importsPerf.totalSalesYTD();
-            //importsPerf.importsTotalSalesYTD();
-            //importsPerf.budgetTotalSalesYTD();
-            //importsPerf.budgetImportsSalesYTD();
+            importsPerf.totalSalesYTD();
+            importsPerf.importsTotalSalesYTD();
+            importsPerf.budgetTotalSalesYTD();
+            importsPerf.budgetImportsSalesYTD();
             
            
             rs.close();
@@ -262,27 +272,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(5);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(5);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(5);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(5);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -1299,7 +1309,7 @@ public class ImportsPerformance {
     private void budgetTotalSalesYTD() throws SQLException{
  
        
-        System.out.println("Fetching Budget Sales(QTD)..");
+        System.out.println("Fetching Budget Sales(YTD)..");
         
            try{
                 String query = "Select t1.department_code as DEPT_CODE, t2.TARGET_SALES from "+
@@ -1847,7 +1857,7 @@ public class ImportsPerformance {
             }
         }
     
-     private void SendEmail(){
+    private void SendEmail(){
        String from = "Report Mailer<report.mailer@metroretail.com.ph>";
        String host = "mymail.metrogaisano.com";
       
@@ -1973,6 +1983,26 @@ public class ImportsPerformance {
           System.out.print(mex);
       }
    }
+    
+    private void getStatusETL(){
+        try{
+            String query = "SELECT CASE WHEN EXISTS (SELECT * FROM ADMIN_ETL_LOG "+
+                           "WHERE TO_DATE(LOG_DATE, 'DD-MON-YY') = TO_DATE(SYSDATE,'DD-MON-YY') "+ 
+                           "AND TASK_ID = 'AdminEtlSummary' AND ERR_CODE = 0) THEN 'DONE' ELSE 'NOT DONE' END AS STATUS FROM DUAL";
+
+            pStatement = con.prepareStatement(query);
+            rs = pStatement.executeQuery();
+            
+            while(rs.next()){
+                statusETL = rs.getString("STATUS");
+            }
+            
+            System.out.println("ETL Status: "+statusETL);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
     
     
     
