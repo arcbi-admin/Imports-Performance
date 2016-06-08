@@ -417,27 +417,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(12);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(12);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(12);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(12);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -561,27 +561,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(19);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(19);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(19);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(19);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -708,27 +708,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(6);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(6);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(6);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(6);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -852,27 +852,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(13);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(13);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(13);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(13);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -997,27 +997,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(20);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(20);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(20);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("NET_SALES");
+                        double sales = rs.getDouble("NET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(20);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -1136,27 +1136,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(8);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(8);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(8);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(8);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -1273,27 +1273,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(15);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(15);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(15);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(15);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -1410,27 +1410,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(22);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(22);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(22);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(22);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -1549,27 +1549,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(9);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(9);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(9);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(9);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -1686,27 +1686,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(16);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(16);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(16);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(16);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -1823,27 +1823,27 @@ public class ImportsPerformance {
                 while(rs.next()){
                     if(row == 14 || row == 18 || row == 22 || row == 38 || row == 46 || row == 50 || row == 52){
                         row++;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(23);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 30 || row == 56 ||   row == 68 || row == 76 || row == 82 || row == 89 || row == 92 || row == 86 ){
                         row = row + 2;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(23);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else if (row == 61 || row == 102 ){
                         row = row + 3;
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(23);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
                     }
                     else{
-                        double sales = rs.getDouble("TARGET_SALES");
+                        double sales = rs.getDouble("TARGET_SALES")/1000;
                         cell = sheet.getRow(row).createCell(23);
                         cell.setCellValue(sales);
                         cell.setCellStyle(style1);
@@ -1988,7 +1988,7 @@ public class ImportsPerformance {
         try{
             String query = "SELECT CASE WHEN EXISTS (SELECT * FROM ADMIN_ETL_LOG "+
                            "WHERE TO_DATE(LOG_DATE, 'DD-MON-YY') = TO_DATE(SYSDATE,'DD-MON-YY') "+ 
-                           "AND TASK_ID = 'AdminEtlSummary' AND ERR_CODE = 0) THEN 'DONE' ELSE 'NOT DONE' END AS STATUS FROM DUAL";
+                           "AND TASK_ID = 'AggMlyVenRebate' AND ERR_CODE = 0) THEN 'DONE' ELSE 'NOT DONE' END AS STATUS FROM DUAL";
 
             pStatement = con.prepareStatement(query);
             rs = pStatement.executeQuery();
